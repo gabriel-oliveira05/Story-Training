@@ -1,0 +1,513 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+    list-style: none;
+    font-family:"Montserrat", sans-serif;
+}
+
+body{
+    background-color: #f6b600;
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+header{
+    position: fixed;        /*funciona junto com "top"*/     
+    width: 95vw;
+    top: 0;                 /*fixa no topo*/
+    padding: 20px 50px;     /*espasamento das letras nos cabeçalho*/
+    display: flex;          /*ja vai deixar um item no lado um do outro*/
+    justify-content: space-between;     /*deixa um pra cada canto */
+    align-items: center;    
+    z-index: 3;          /*camada do header tudo fica por cima da cor */ 
+}
+
+.logo{
+    font-family:  "Sono", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: black;
+    text-shadow: 0 0 11px;
+}
+
+header nav ul {
+    display: flex;
+    gap: 48px;
+}
+
+header nav ul li {
+    cursor: pointer;
+    position: relative;       /*facilita colocar alguns posicionamentos*/
+    padding: 5px 0;
+}
+
+header nav ul li::after {
+    content: '';
+    position: absolute;   /*deixar exatamente onde eu quero a alteração*/
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.2s ease;
+}
+
+header nav ul li:hover::after {        
+        width: 100%;
+}
+
+.container  {
+    height: 100vh;
+    position: relative;
+   background-image: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.5) 100%);
+    background-color: #f6b600; /* Cor inicial (Lemonade) */
+    overflow: hidden;
+    transition: background-color 0.8s ease-in-out;
+}
+
+.container::before {
+    content: '';
+    
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(236, 234, 234, 0.496) 
+ 0%, rgba(15, 15, 30, 0) 70%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(50px);
+    z-index: 1;
+    animation: pulse 2s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+
+    100% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(2);
+    }
+}
+
+.list {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.item {
+    position: absolute;   
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+
+    /*ANIMAÇÃO*/
+    transform: translateX(100vw);
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+}
+
+
+.active{
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.produto-img {
+     width: 45%;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     left: 8%;
+     position: relative;
+     z-index: 2;
+}
+
+.produto-img img{
+    max-width: 900%;
+    max-height: 60%;
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.836));
+
+    /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .produto-img img{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.conteudo{
+    width: 50%;
+    padding-right: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 2;
+    flex-direction: column;
+}
+
+.product-tag{
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: black;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.product-name1{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(194, 9, 80);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .product-name1{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.product-name2{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(38, 24, 1);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .product-name2{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.product-name3{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(227, 189, 2);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .product-name3{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.product-name4{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(5, 47, 9);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .product-name4{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.product-name5{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(115, 0, 0);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.product-name6{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.product-name7{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(53, 0, 78);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.product-name8{
+    font-size: 4.5rem;
+    font-family:  "Sono", sans-serif;
+    line-height: 0.8;
+    margin-bottom: 20px;
+    color: rgb(255, 178, 0);
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .product-name8{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.active .product-name7{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.active .product-name6{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.active .product-name5{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+.description{
+    font-size: 1.1rem;
+    color: #000000;
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 50px;
+    max-width: 600px;
+ /*ANIMAÇÃO*/
+    transform: translateX(400px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+
+.active .description{
+    transform: translateX(0);
+    opacity: 1;
+
+}
+
+.description1 span{
+    font-weight: 800;
+    color: rgb(194, 9, 80);
+}
+
+.description2 span{
+    font-weight: 800;
+    color: rgb(38, 24, 1);
+}
+
+.description3 span{
+    font-weight: 800;
+    color: rgb(227, 189, 2);
+}
+
+.description4 span{
+    font-weight: 800;
+    color: rgb(5, 47, 9);
+}
+
+.description5 span{
+    font-weight: 800;
+    color: rgb(115, 0, 0);
+}
+
+.description6 span{
+    font-weight: 800;
+    color: rgb(0, 0, 0);
+}
+
+
+.description7 span{
+    font-weight: 800;
+    color: rgb(53, 0, 78);
+}
+
+.description8 span{
+    font-weight: 800;
+    color: rgb(255, 178, 0);
+}
+
+
+.btn{
+    padding: 12px 16px;
+    background: linear-gradient(90deg, #f6b4007f, #3c2c018b);
+    border-radius: 30px;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid #3c2c018b;
+    margin-top: 60px;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #f6b400, #3c2c01);
+    border-color: #3c2c01;
+ 
+}
+
+.arrows{
+    position: absolute;   /*coloco exatamente aonde eu quero as setas*/
+    width: 90%;
+    display: flex;     /*com isso coloco uma em cada canto*/
+    justify-content: space-between;  /*tenho duas setas e com isso coloco uma para cada lado*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*deixa as setas exatamente no centro*/
+    z-index: 5;
+    pointer-events: none;
+}
+
+.arrow-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    background:  rgba(255, 255, 255, 0.303);
+    border: 1px solid #3c2c018b;
+    pointer-events: auto;
+}
+
+
+.arrow-btn:hover{
+    background: linear-gradient(90deg, #f6b400, #3c2c01);
+    border-color: #3c2c01;
+}
+
+.indicators{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 5;
+}
+
+.numbers{
+    font-family: "Sono", sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.dots{
+    display: flex;
+    gap: 10px;
+}
+
+.dot{
+    width: 40px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+
+}
+
+.dot.active{
+    background-color: #3c2c01;
+    box-shadow:0 0 11px #3c2c01;
+}
+
+.tech-circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.circle{
+    position: absolute;
+    border-radius: 50%;
+    border:1px solid #3c2c01;
+}
+
+.circle:nth-child(1){
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+}
+
+.circle:nth-child(2){
+    width: 300px;
+    height: 300px;
+    top: 60%;
+    left: 80%;
+}
+
+.circle:nth-child(3){
+    width: 150px;
+    height: 150px;
+    top: 70%;
+    left: 20%;
+}
+
+.circle:nth-child(4){
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 70%;
+}
