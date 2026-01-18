@@ -6,8 +6,7 @@ Projeto densenvolvido para praticar HTML, CSS e JavaScript.
 2. Interações com JavaScript
 
 ## Como executar
-- Clone o repositorio
-- Abra o arquivo index.html no navegador.
+- Clique no link e tenha uma experiência incrivel:  https://gabriel-oliveira05.github.io/Story-Training/
 
 ## Tecnologias
 - HTML
